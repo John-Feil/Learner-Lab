@@ -7,6 +7,9 @@ public class ZipCodeWilmington {
     public void hostLecture(ITeacher teacher, double numberOfHours){
         teacher.lecture( studentsInstance.toArray(), numberOfHours);
     }
+    public void hostLecture(Educator teacher, double numberOfHours){
+        teacher.lecture( studentsInstance.toArray(), numberOfHours);
+    }
 
     public void hostLecture(long id, double numberOfHours){
         ITeacher teacher = instructorsInstance.findById(id);
