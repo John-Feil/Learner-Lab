@@ -1,29 +1,30 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class People implements Iterator{
-    private List<Person> personList = new ArrayList<>();
+public abstract class People<E extends Person> implements Iterator{
+    private List<E> personList = new ArrayList<>();
 
-    public void addPerson(Person person){
+    public void addPerson(E person){
         personList.add(person);
     }
-    public Person findById(long id){
-        for (Person p: personList){
+    public E findById(long id){
+        for (E p: personList){
             if (p.getId() == id){
                 return p;
             }
         }
         return null;
     }
-    public boolean containsPerson(Person person){
-        for (Person p : personList){
+    public boolean containsPerson(E person){
+        for (E p : personList){
             if (p.equals(person)){
                 return true;
             }
         }
         return false;
     }
-    public void removePerson(Person person){
+    public void removePerson(E person){
         personList.remove(person);
     }
     public void removeAll(){
@@ -32,11 +33,13 @@ public class People implements Iterator{
     public int count(){
         return personList.size();
     }
-    public Object[] toArray(){
-        return personList.toArray();
+    public abstract E[] toArray();
+
+    public ArrayList<E> getPersonList(){
+        return (ArrayList<E>) personList;
     }
     public Iterator iterator(){
-        Iterator<Person> iteratorObject = personList.iterator();
+        Iterator<E> iteratorObject = personList.iterator();
         return iteratorObject;
     }
 

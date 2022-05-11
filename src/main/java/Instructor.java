@@ -16,4 +16,5 @@ public class Instructor extends Person implements ITeacher{
             learner.learn(hoursPerLearner);
         }
     }
+
 }

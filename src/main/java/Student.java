@@ -14,4 +14,9 @@ public class Student extends Person implements ILearner{
     public double getTotalStudyTime() {
         return this.totalStudyTime;
     }
+
+    @Override
+    public String toString() {
+        return "Student: " + getName() + " " +  getId();
+    }
 }
